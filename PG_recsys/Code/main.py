@@ -19,7 +19,7 @@ import torch
 import torch.optim as optim
 import torch.nn as nn
 import torch.nn.functional as F
-from Env import rec_env
+
 from Agent import Policy_Network
 from Agent import agent_train
 from tqdm import tqdm
@@ -59,7 +59,7 @@ for product in tqdm(all_product_list):
 GPU_NUM = 3
 device = torch.device(f"cuda:{GPU_NUM}") if torch.cuda.is_available() else torch.device("cpu")
 # Import environment
-env = rec_env()
+
 #shape
 obs_shape = torch.Tensor(np.zeros((1,1549))).shape
 act_shape = torch.Tensor(np.zeros((1,8603))).shape
