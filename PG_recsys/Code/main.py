@@ -89,7 +89,7 @@ episode_loss = 0
 best_test_reward = -999999
 key_reward = 0
 key_loss = 0
-for epoch in range(1000):
+for epoch in range(total_step):
     print("epoch : ",epoch)
     for key in key_list[1:2]:
         for t in range(0,len(stream_data[key]["purchase_list"])-1, 1):
@@ -127,11 +127,6 @@ for epoch in range(1000):
             episode_reward += reward
             episode_loss += loss
             print("**********************")
-# key별 리워드와 episode별 리워드를 분리시켜야할 듯함
-    print("----------------------------------------------")
-    if best_test_reward <= episode_reward:
-        best_test_reward = episode_reward
-        torch.save(policy_model.state_dict(), "policy_model.pt")        
 
     for i in range(len(returns)-2, -1,-1):
         returns[i] += returns[i+1]*gamma
@@ -142,39 +137,6 @@ for epoch in range(1000):
     returns = []
     episode_reward = 0
     episode_loss = 0
-        #if epoch%100 == 0:
-    #    plot(loss_list, "mean_loss")
+    if epoch%100 == 0:
+        plot(loss_list, "mean_loss")
     
-
-# %%
-rewards
-# %%
-check_list.index(1)
-# %%
-state_vector.shape
-# %%
-episode_loss
-
-# %%
-plot(loss_list, "mean_loss")
-
-# %%
-plot(rewards, "mean_reward")
-# %%
-all_product_list.index(str(8809206510069))
-# %%
-#inference step
-for key in key_list[12:13]:
-    for t in range(0,len(stream_data[key]["purchase_list"])-1, 1):
-        print("t : ", t)
-        state_vector =  state_generation(t, key, stream_data ,cnn_model, loc_data, masking_map, products_by_md, small_inf_p_list, device)
-        print("state_vector :",state_vector)
-        next_action = stream_data[key]["purchase_list"][t+1]["상품코드"]
-        action, logprob, prob = policy_model.get_action_logprob(state_vector, torch.LongTensor([all_product_list.index(next_action)]) ,device) # index가 나옴
-        prob = prob.unsqueeze(dim = 0)
-        #print("현재상품명 : ",stream_data[key]["purchase_list"][t]["상품명"])
-        print("다음 상품코드 : ", next_action)
-        print("예측 상품코드", all_product_list[action])
-        print("다음상품명 : ",stream_data[key]["purchase_list"][t+1]["상품명"])
-        print("현재 통로 위치: ",stream_data[key]["purchase_list"][t]["대분류"])
-# %%
