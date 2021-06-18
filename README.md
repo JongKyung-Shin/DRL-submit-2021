@@ -1,6 +1,6 @@
 # DRL-submit-2021 - by JongKyung Shin (20205357)
 
-1. Details
+1. File Description
   * Training framework 구동 code
     * main.py : 전체 training framework를 작동 시키는 code
     * Agent.py : REINFORCE policy network code
@@ -13,7 +13,7 @@
     * preprocessing_data_generation.ipynb : 구매 데이터로 학습을 위한 구매순서있는 transaction생성 (json_file)
     * preprecess_number_of_keys_sperate.ipynb : T 길이만큼의 transaction 추출
  
-3. Dependency
+2. Dependency
   * main code 관련
     * os : Ubuntu 18.04
     * Pytorch
