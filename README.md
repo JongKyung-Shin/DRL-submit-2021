@@ -2,7 +2,7 @@
 
 1. Details
   * Training framework 구동 code
-  * * main.py : 전체 training framework를 작동 시키는 code
+    * main.py : 전체 training framework를 작동 시키는 code
       * Agent.py : REINFORCE policy network code
   * State generator code
       * state_generator.py : CNN network 및 state 생성을 위한 code
