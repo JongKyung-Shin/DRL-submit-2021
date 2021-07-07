@@ -29,5 +29,5 @@
   * main 함수의 작동 및 학습을 위해서는 PG_recsys 폴더에  /Data/json_file/purchase_202001_ver4.json 이 추가되어야합니다.
   * preprocessing_data_generation.ipynb 작동을 위해서도 PG_recsys 폴더에 /Data/csv_file/매출TR_202001.csv 가 추가되어야합니다.
   * github 용량문제로 인해, 해당 파일을 폴더에 업로드하지 못하였습니다. 두 데이터는 아래 링크에서 다운로드 받으실수 있습니다.
-  * https://www.dropbox.com/sh/82nolobfvk5a3he/AACY5HYSbYbbu5JaarnqCN1Va?dl=0
+  * 링크 삭제됨
   * 다운로드가 안될 시에는 shinjk1156@unist.ac.kr로 요청해주시기 바랍니다.
